@@ -1,0 +1,26 @@
+{
+  "name": "wechaty-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node src/main.ts",
+    "start-pm2": "pm2 start src/main.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-schedule": "^2.1.1",
+    "qrcode-terminal": "^0.12.0",
+    "request": "^2.88.2",
+    "wechaty": "^1.20.2",
+    "wechaty-puppet": "^1.20.2",
+    "wechaty-puppet-wechat4u": "^1.14.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0",
+    "@types/request": "^2.48.8",
+    "tsconfig-paths": "^4.2.0"
+  }
+}

@@ -1,9 +1,14 @@
-import {Contact} from 'wechaty'
+import {Contact,Wechaty} from 'wechaty'
 
-export const onLogin = async (user: Contact) => {
-    console.log('========================👉 onLogin 👈========================\n\n')
-    console.log(`机器人：${user.name()} logged in\n\n`)
-    console.log(`
+export const onLogin = async (user: Contact,wechaty:Wechaty) => {
+  const allContactList = await wechaty?.Contact.findAll()!
+  const allRooms = await wechaty.Room.findAll();
+  const friendList = allContactList.filter(contact => contact.alias());
+  console.log(friendList)
+  console.log(allRooms)
+  console.log('========================👉 onLogin 👈========================\n\n')
+  console.log(`机器人：${user.name()} logged in\n\n`)
+  console.log(`
                            //
                \\         //
                 \\       //
@@ -19,4 +24,5 @@ export const onLogin = async (user: Contact) => {
         ## MMMMMMMMMMMMMMMMMMMM ##    
         ##MMMMMMMMMMMMMMMMMMMMMM##      微信机器人名为: [${user.name()}] 已经扫码登录成功了。\n\n
         `)
+
 }
