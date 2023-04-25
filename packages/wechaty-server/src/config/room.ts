@@ -8,6 +8,6 @@ export const roomList: string[] = [
   '@@5546886f6de36a91bfbd9d36cddb3721167fe520e2a3b3faddf5ad9df7c65743'
 ]
 
-export const datouid = '@0a4dfc254fe924d1da8b9ec10270c26a9b1d4224f4302e297d02ab6f559cccca'
+export const datouid = '@ba6694408e99ec0d2fe74420d50b428e34ad2d60b897ae99f1d6048bfaf2b8d6'
 
 

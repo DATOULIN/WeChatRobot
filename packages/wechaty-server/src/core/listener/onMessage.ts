@@ -25,12 +25,9 @@ const roomMessage = async (message: Message) => {
   const content = message.text().trim(); // 消息内容
   const topic = await room.topic();
   log.info(LOGPRE, `群名: ${topic} 发消息人: ${contact.name()} 内容: ${content}`);
-  const fd = roomList.find(item => item === room.id)
-  if (fd && mentionSelf) {
+
+  if (mentionSelf) {
     await message.say("hi,i am robot~")
-    setSchedule('*/5 * * * *', async () => {
-      await message.say("hi,i am robot~")
-    })
   }
 }
 
@@ -40,7 +37,6 @@ const privateMessage = async (message: Message) => {
   const content = message.text().trim(); // 消息内容
   const alias = await contact.alias() || contact.name(); // 发消息人备注
   log.info(LOGPRE, `发消息人: ${alias} 消息内容: ${content}`);
-  console.log(message.from()!)
   await message.say("hi,i am robot~")
   setSchedule('*/10 * * * *', async () => {
     await message.say("hi,i am robot~")
