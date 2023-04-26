@@ -1,7 +1,6 @@
 import {log, Message} from "wechaty";
 import * as PUPPET from "wechaty-puppet";
 import globalConfig from "@/config/global";
-import {roomList} from "@/config/room";
 import request from 'request'
 import {setSchedule} from "@/core/job";
 
