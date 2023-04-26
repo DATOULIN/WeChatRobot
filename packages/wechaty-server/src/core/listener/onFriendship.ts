@@ -1,6 +1,7 @@
 import {Friendship, log} from "wechaty";
 import * as PUPPET from "wechaty-puppet";
 import globalConfig from "@/config/global";
+import {delay} from "@/utils";
 
 const {ACCEPTFRIEND, LOGPRE} = globalConfig
 

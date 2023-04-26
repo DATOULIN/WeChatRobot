@@ -9,6 +9,7 @@ import {onFriendship} from "@/core/listener/onFriendship";
 
 import globalConfig from "@/config/global";
 import {getAllContactList} from "@/utils/wechaty-util";
+import {onReady} from "@/core/listener/onReady";
 
 const {LOGPRE} = globalConfig
 
@@ -29,9 +30,7 @@ function prepareBot() {
     })
     // ！！！只有当 bot ready 才能保证 bot 已经完全登录且初始化成功，这之后才能调用 bot 各种API
     .on("ready", async function () {
-      const friendList = await getAllContactList(this)
-      log.info(LOGPRE, "========初始化完成========")
-      log.info(LOGPRE, friendList)
+      await onReady(this)
     })
     .on('message', onMessage)
     .on('room-topic', async function () {

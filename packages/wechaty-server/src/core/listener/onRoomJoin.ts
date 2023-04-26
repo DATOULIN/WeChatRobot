@@ -9,7 +9,7 @@ const {ROOMJOINLIST} = globalConfig
  * @param {*} name 有新人的群名
  * @return {*} 配置中此群的下标，不存在此群返回-1
  */
-function roomHasConfig(arr: any[], name: string) {
+function roomHasConfig(arr: any[], name: string): any {
   if (arr.length == 0) return -1
   for (let i in arr) {
     if (arr[i].name == name) return i
