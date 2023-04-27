@@ -1,7 +1,9 @@
-import {sendMessageToRoom,sendMessageToUser} from "@/utils/wechaty-util";
-import {scheduleList} from '@/config/schedule'
-import {setSchedule} from "@/utils/schedule-util";
-// 初始化任务
+import {sendMessageToRoom,sendMessageToUser} from "@/core/listener/onMessage";
+import {scheduleList,setSchedule} from '@/job'
+
+/***
+ * 初始化每日任务
+ * */
 async function initEveryJob(that:any) {
   await sendMessageToRoom("微信机器人测试群", 'hi,我上线了~', that);
 

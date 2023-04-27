@@ -6,6 +6,7 @@ async function delay(ms: number): Promise<any> {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// 随机数
 function random(maxL: number, params?: any): number {
   params = {...{length: 1, min: 1, max: maxL}, ...params};
   let {length, min, max} = params;

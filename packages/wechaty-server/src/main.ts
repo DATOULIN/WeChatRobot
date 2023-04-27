@@ -1,3 +1,3 @@
-import {prepareBot} from "./core";
+import {prepareBot} from "@dt/bot-core";
 
 prepareBot()

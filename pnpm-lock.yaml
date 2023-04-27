@@ -4,15 +4,32 @@ importers:
 
   .:
     specifiers:
+      '@types/node': ^18.16.0
       ts-node: ^10.9.1
       typescript: ^5.0.4
     devDependencies:
-      ts-node: 10.9.1_typescript@5.0.4
+      '@types/node': 18.16.0
+      ts-node: 10.9.1_gfpyv5b3h2oguybx3lu7z4el7a
       typescript: 5.0.4
+
+  packages/bot-core:
+    specifiers:
+      qrcode-terminal: ^0.12.0
+      wechaty: ^1.20.2
+      wechaty-puppet: ^1.20.2
+      wechaty-puppet-wechat4u: ^1.14.1
+    dependencies:
+      qrcode-terminal: 0.12.0
+      wechaty: 1.20.2
+      wechaty-puppet: 1.20.2
+      wechaty-puppet-wechat4u: 1.14.1_wechaty-puppet@1.20.2
+
+  packages/bot-manager-frontend:
+    specifiers: {}
 
   packages/wechaty-server:
     specifiers:
-      '@types/node': ^18.16.0
+      '@dt/bot-core': workspace:^1.0.0
       '@types/qs': ^6.9.7
       '@types/request': ^2.48.8
       node-schedule: ^2.1.1
@@ -24,6 +41,7 @@ importers:
       wechaty-puppet: ^1.20.2
       wechaty-puppet-wechat4u: ^1.14.1
     dependencies:
+      '@dt/bot-core': link:../bot-core
       node-schedule: 2.1.1
       qrcode-terminal: 0.12.0
       qs: 6.11.1
@@ -32,7 +50,6 @@ importers:
       wechaty-puppet: 1.20.2
       wechaty-puppet-wechat4u: 1.14.1_wechaty-puppet@1.20.2
     devDependencies:
-      '@types/node': 18.16.0
       '@types/qs': 6.9.7
       '@types/request': 2.48.8
       tsconfig-paths: 4.2.0
@@ -2209,7 +2226,7 @@ packages:
       punycode: 2.3.0
     dev: false
 
-  /ts-node/10.9.1_typescript@5.0.4:
+  /ts-node/10.9.1_gfpyv5b3h2oguybx3lu7z4el7a:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -2228,6 +2245,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
+      '@types/node': 18.16.0
       acorn: 8.8.2
       acorn-walk: 8.2.0
       arg: 4.1.3
