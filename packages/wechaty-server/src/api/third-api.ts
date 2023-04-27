@@ -52,7 +52,7 @@ const hotWordSearch = (params: any) => {
 }
 
 // 脑筋急转弯
-const farceSwerve =  (params:any)=> {
+const farceSwerve = (params: any) => {
   const key = 'ec018bf1f1951531d5959c367ae8f640'
 
   return new Promise((resolve, reject) => {
@@ -77,8 +77,65 @@ const farceSwerve =  (params:any)=> {
     });
   });
 };
+
+// 菜字谜
+const zimi = (params: any) => {
+  const search = {
+    key: txKey,
+  }
+  return new Promise((resolve, reject) => {
+    let url = `${commonApi.zimi}?` + qs.stringify(search);
+    request.get(url, (params = params), function (error, response, body) {
+      console.log(body)
+      if (!body) {
+        resolve("你在说什么，我听不懂");
+      } else {
+        let data = JSON.parse(body);
+        if (data.code == 200) {
+          const content = data.result
+          resolve(JSON.stringify(data.result));
+        } else {
+          console.log("请求失败！");
+          resolve("你在说什么，我听不懂");
+        }
+      }
+
+    });
+  });
+}
+
+// 成语接龙
+const chengyujielong = (params: any, userid: any) => {
+  const search = {
+    key: txKey,
+    num: 10,
+    word: params,
+    userid: userid
+  }
+  return new Promise((resolve, reject) => {
+    let url = `${commonApi.zimi}?` + qs.stringify(search);
+    request.get(url, (params = params), function (error, response, body) {
+      console.log(body)
+      if (!body) {
+        resolve("你在说什么，我听不懂");
+      } else {
+        let data = JSON.parse(body);
+        if (data.code == 200) {
+          const content = data.result
+          resolve(JSON.stringify(data.result));
+        } else {
+          console.log("请求失败！");
+          resolve("你在说什么，我听不懂");
+        }
+      }
+
+    });
+  });
+}
 export {
   rainbowFart,
   hotWordSearch,
-  farceSwerve
+  farceSwerve,
+  zimi,
+  chengyujielong
 }

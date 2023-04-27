@@ -1,13 +1,12 @@
 import {log, Message} from "wechaty";
 import * as PUPPET from "wechaty-puppet";
 import globalConfig from "@/config/global";
-import {farceSwerve, hotWordSearch, rainbowFart} from '@/api/third-api'
-import {replyFunction} from '@/config/reply'
+import {handleMessageReply} from "@/core/job/message";
 
 const {LOGPRE} = globalConfig
 
 // 监听消息
-export const onMessage = async (message: Message) => {
+const onMessage = async (message: Message) => {
   log.info(LOGPRE, `on message: ${message.toString()}`);
   const room = message.room(); // 是否是群消息
   room ? await roomMessage(message) : await privateMessage(message)
@@ -26,26 +25,8 @@ const roomMessage = async (message: Message) => {
     // 文字信息
     case PUPPET.types.Message.Text:
       if (mentionSelf) {
-        const selfContent = text.replace(/@[^,，：:\s@]+/g, '').trim()
-        if (selfContent === '彩虹屁') {
-          let reply = await rainbowFart(selfContent) as any;
-          await message.say(reply)
-        } else if (selfContent.includes("搜索：")) {
-          const sendText = selfContent.replace("搜索：", "")
-          let reply = await hotWordSearch(sendText) as any;
-          await message.say(reply)
-        } else if (selfContent === '脑筋急转弯') {
-          let reply = await farceSwerve(selfContent) as any;
-          const result = JSON.parse(reply)
-          await room.say(`${result.content} \r\r\r 【10秒后公布答案】`);
-          setTimeout(async () => {
-            await room.say(`答案是：${result.result}`);
-          }, 10000)
-        } else if (['你有什么功能?', '你有什么功能', '你可以干嘛?', '你可以干嘛', '你会啥', '你会啥?'].includes(selfContent)) {
-          await room.say(replyFunction.message)
-        }
+        await handleMessageReply(message, text)
       }
-      break;
   }
 }
 
@@ -64,3 +45,41 @@ const privateMessage = async (message: Message) => {
   }
 }
 
+// 发送私聊消息
+const sendMessageToUser = async (toUser: string, payload: string, that: any) => {
+  let contact = await that.Contact.find({alias: toUser}) || await that.Contact.find({name: toUser}); // 获取你要发送的联系人
+  if (contact) {
+    await contact.say(payload)
+  } else {
+    log.info(LOGPRE, "找不到该好友！")
+    return
+  }
+};
+
+// 发送群消息
+async function sendMessageToRoom(toRoom: string, payload: string, that: any) {
+  let room = await that.Room.find({topic: toRoom});
+  if (room) {
+    await room.say(payload)
+  } else {
+    log.info(LOGPRE, "找不到该群！")
+  }
+}
+
+// 获取所有联系人
+async function getAllContactList(that: any) {
+  const allContactList = await that.Contact.findAll();
+  return allContactList.filter(contact => contact.friend())
+}
+
+// 获取所有群聊
+async function getAllRoomList(that: any) {
+  return await that.Room.findAll();
+}
+
+export {
+  onMessage,
+  sendMessageToRoom,
+  sendMessageToUser,
+  getAllContactList
+}

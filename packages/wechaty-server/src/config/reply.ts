@@ -1,3 +1,13 @@
-export const replyFunction = {
-  message:`你好哦~\n\n你可以艾特我，并且发送\n\n1.【脑筋急转弯】\n2.【彩虹屁】\n3.【搜索：xxx】\n就能发现精彩的故事~`
+export const replyTemplate = {
+  room: `
+  你好哦~🤭\n
+  你可以艾特我，发送以下关键字\n
+  1.【脑筋急转弯】\n
+  2.【彩虹屁】\n
+  3.【搜索：xxx】\n
+  4.【猜字谜】\n
+  就能和我有故事发生🤝~\n
+  更多内容敬请期待，希望能踊跃提出宝贵意见😘
+  `,
+
 }

@@ -1,14 +1,13 @@
 import {Contact, log, Wechaty, WechatyBuilder} from "wechaty";
 
-import {onLogin} from "./listener/onLogin";
-import {onMessage} from "./listener/onMessage";
-import {onScan} from "./listener/onScan";
+import {onLogin} from "@/core/listener/onLogin";
+import {onMessage} from "@/core/listener/onMessage";
+import {onScan} from "@/core/listener/onScan";
 import {onRoomJoin} from "@/core/listener/onRoomJoin";
 import {onRoomTopic} from "@/core/listener/onRoomTopic";
 import {onFriendship} from "@/core/listener/onFriendship";
 
 import globalConfig from "@/config/global";
-import {getAllContactList} from "@/utils/wechaty-util";
 import {onReady} from "@/core/listener/onReady";
 
 const {LOGPRE} = globalConfig
