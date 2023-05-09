@@ -1,7 +1,7 @@
 import {log, Message} from "wechaty";
 import * as PUPPET from "wechaty-puppet";
 import globalConfig from "@/config/global";
-import {handleMessageReply} from "@/core/job/message";
+import {handleMessageReply} from "@/job/message";
 
 const {LOGPRE} = globalConfig
 
@@ -81,5 +81,6 @@ export {
   onMessage,
   sendMessageToRoom,
   sendMessageToUser,
-  getAllContactList
+  getAllContactList,
+  getAllRoomList
 }

@@ -53,8 +53,6 @@ const hotWordSearch = (params: any) => {
 
 // 脑筋急转弯
 const farceSwerve = (params: any) => {
-  const key = 'ec018bf1f1951531d5959c367ae8f640'
-
   return new Promise((resolve, reject) => {
     let url = `${commonApi.farceSwerveURL}?key=${txKey}` + qs.stringify(params);
 

@@ -1,7 +1,7 @@
 import {Contact, log, Room} from "wechaty";
-import globalConfig from "@/config/global";
+import {commonTemplate} from "@/template/commonTemplate";
 
-const {ROOMJOINLIST} = globalConfig
+const {roomJoinWelcomeList} = commonTemplate
 
 /**
  * 判断配置中是否存在此群
@@ -20,10 +20,10 @@ function roomHasConfig(arr: any[], name: string): any {
 async function onRoomJoin(room: Room, inviteeList: Contact[], inviter: Contact, date) {
   const nameList = inviteeList.map(c => c.name()).join(',')
   const roomName = await room.topic()
-  const roomIndex = roomHasConfig(ROOMJOINLIST, roomName)
+  const roomIndex = roomHasConfig(roomJoinWelcomeList, roomName)
   if (roomIndex > -1) {
     log.info(`群名： ${roomName} ，加入新成员： ${nameList}, 邀请人： ${inviter}`, `${date}`);
-    await room.say(`${roomName}：欢迎新朋友 @${nameList}，<br>${ROOMJOINLIST[roomIndex].welcome}`)
+    await room.say(`${roomName}：欢迎新朋友 @${nameList}，<br>${roomJoinWelcomeList[roomIndex].welcome}`)
   }
 }
 
