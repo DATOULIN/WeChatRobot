@@ -1,5 +1,5 @@
 {
-  "name": "dt-wechat-robot",
+  "name": "dt-bot-fontend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,9 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
-  }
+  "license": "ISC"
 }
