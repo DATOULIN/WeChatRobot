@@ -1,11 +1,8 @@
-import {Message} from "wechaty";
+import { Message } from 'wechaty';
 
 interface MessageText {
-  message: Message,
-  text: string
+	message: Message;
+	text: string;
 }
 
-
-export {
-  MessageText
-}
+export { MessageText };
