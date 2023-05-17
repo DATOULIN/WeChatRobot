@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --ext .ts,.tsx,.js,.jsx --fix --quiet ./packages",
     "bootsrtap": "pnpm install",
-    "dev:user": "pnpm -C ./packages/dt-bot-fontend dev:dev",
+    "dev:user": "pnpm -C ./packages/dt-bot-manager dev:dev",
     "start:bot": "pnpm -C ./packages/dt-bot-core start"
   },
   "keywords": [],

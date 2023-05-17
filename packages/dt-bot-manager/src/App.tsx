@@ -1,9 +1,7 @@
+import Login from '@/pages/login';
+
 function App() {
-	return (
-		<div>
-			<h2>webpack5-react-ts</h2>
-		</div>
-	);
+	return <div>{/*<Login />*/}</div>;
 }
 
 export default App;
