@@ -48,7 +48,7 @@ const devServer = new WebpackDevServer(
 		},
 		headers: { 'Access-Control-Allow-Origin': '*' },
 		proxy: {
-			'/api/v1': {
+			'/api/': {
 				target: 'http://localhost:8000'
 			}
 		}
