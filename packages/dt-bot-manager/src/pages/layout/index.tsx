@@ -1,12 +1,19 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-const Layout: React.FC = () => {
+import { Layout } from 'antd';
+import DTHeader from '@/pages/layout/DTHeader';
+import DTSider from '@/pages/layout/DTSider';
+import DTContent from '@/pages/layout/DTContent';
+
+const DTLayout: React.FC = () => {
 	return (
-		<div>
-			layout
-			<Outlet />
-		</div>
+		<Layout style={{ minHeight: '100vh' }}>
+			<DTHeader />
+			<Layout>
+				<DTSider />
+				<DTContent />
+			</Layout>
+		</Layout>
 	);
 };
 
-export default Layout;
+export default DTLayout;

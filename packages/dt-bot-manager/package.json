@@ -12,7 +12,8 @@
     "build:test": "cross-env NODE_ENV=production BASE_ENV=test webpack -c build/webpack.prod.ts",
     "build:pre": "cross-env NODE_ENV=production BASE_ENV=pre webpack -c build/webpack.prod.ts",
     "build:prod": "cross-env NODE_ENV=production BASE_ENV=production webpack -c build/webpack.prod.ts",
-    "build:analy": "cross-env NODE_ENV=production BASE_ENV=production webpack -c build/webpack.analy.ts"
+    "build:analy": "cross-env NODE_ENV=production BASE_ENV=production webpack -c build/webpack.analy.ts",
+    "serve": "serve dist"
   },
   "keywords": [],
   "author": "",
@@ -61,6 +62,7 @@
     "webpackbar": "^5.0.2"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.1.0",
     "ahooks": "^3.7.7",
     "antd": "^5.5.0",
     "axios": "^1.4.0",

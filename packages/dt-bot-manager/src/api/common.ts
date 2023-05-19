@@ -1,8 +1,7 @@
-import request from '@/utils/request';
+import request, { requestWrapper } from '@/utils/request';
 
 export function getVerificationCode() {
-	return request({
-		url: '/common/getCaptCha',
+	return requestWrapper<{ id: string; b64s: string }>('/common/getCaptCha', {
 		method: 'GET'
 	});
 }

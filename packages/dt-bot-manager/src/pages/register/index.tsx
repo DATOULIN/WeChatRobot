@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Form, Input, message } from 'antd';
-import { register, RegisterParams } from '@/api/user';
+import { register } from '@/api/user';
 import { useRequest } from 'ahooks';
+import { RegisterParams } from '@/types/user';
 
 const Register: React.FC = () => {
 	const { run } = useRequest(register, {

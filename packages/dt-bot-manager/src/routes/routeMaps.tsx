@@ -1,29 +1,45 @@
 import { Navigate, RouteObject } from 'react-router-dom';
 import { Login, Register, Dashboard, Page404, Layout, About } from './routeComponents';
+
 export const routeMaps: Array<RouteObject> = [
 	{
 		path: '/',
-		element: <Navigate to="/dashboard" />
+		element: <Navigate to="/work_bench/dashboard" />
 	},
 	{
-		path: '/login',
-		element: <Login />
+		path: 'login',
+		element: <Login />,
+		handle: {
+			title: '登录'
+		}
 	},
 	{
-		path: '/register',
-		element: <Register />
+		path: 'register',
+		element: <Register />,
+		handle: {
+			title: '注册'
+		}
 	},
 	{
-		path: '/',
+		path: '/work_bench',
 		element: <Layout />,
 		children: [
 			{
+				index: true,
 				path: 'dashboard',
-				element: <Dashboard />
+				element: <Dashboard />,
+				handle: {
+					title: '首页',
+					auth: true
+				}
 			},
 			{
 				path: 'about',
-				element: <About />
+				element: <About />,
+				handle: {
+					title: '关于',
+					auth: true
+				}
 			}
 		]
 	},

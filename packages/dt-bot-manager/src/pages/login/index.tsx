@@ -1,20 +1,23 @@
 import React from 'react';
 import { Button, Form, Input, message } from 'antd';
-import { login, LoginParams } from '@/api/user';
+import { login } from '@/api/user';
+import { LoginParams } from '@/types/user';
 import { useRequest } from 'ahooks';
 import { setToken } from '@/utils/cookie';
 import { getVerificationCode } from '@/api/common';
-
+import { useNavigate } from 'react-router-dom';
 const Login: React.FC = () => {
+	const navigate = useNavigate();
 	const { run } = useRequest(login, {
 		manual: true,
 		onSuccess: (res) => {
 			message.success('登录成功！');
-			setToken(res.data);
+			navigate('/', { replace: true });
+			setToken(res.result.access_token);
 		}
 	});
 
-	useRequest(getVerificationCode);
+	useRequest(getVerificationCode, { onSuccess: (res) => {} });
 
 	const onFinish = (values: LoginParams) => {
 		console.log('Success:', values);

@@ -1,17 +1,8 @@
-import request from '@/utils/request';
-export interface LoginParams {
-	email: string;
-	password: string;
-}
-export interface RegisterParams {
-	username: string;
-	email: string;
-	password: string;
-	confirmPassword: string;
-}
+import request, { requestWrapper } from '@/utils/request';
+import { LoginParams, RegisterParams, LoginResponseData } from '@/types/user';
+
 export function login(data: LoginParams) {
-	return request({
-		url: '/v1/user/login',
+	return requestWrapper<LoginResponseData>('/v1/user/login', {
 		method: 'post',
 		data
 	});

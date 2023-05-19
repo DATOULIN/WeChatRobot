@@ -9,3 +9,7 @@ export function getToken(): string {
 export function setToken(data: string) {
 	Cookies.set(tokenKey, data);
 }
+
+export function clearToken() {
+	Cookies.set(tokenKey, undefined);
+}

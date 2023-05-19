@@ -61,6 +61,7 @@ importers:
 
   packages/dt-bot-manager:
     specifiers:
+      '@ant-design/icons': ^5.1.0
       '@babel/core': ^7.21.4
       '@babel/plugin-proposal-decorators': ^7.21.0
       '@babel/preset-env': ^7.21.4
@@ -111,6 +112,7 @@ importers:
       webpack-merge: ^5.8.0
       webpackbar: ^5.0.2
     dependencies:
+      '@ant-design/icons': 5.1.0_biqbaboplfbrettd7655fr4n2y
       ahooks: 3.7.7_react@18.2.0
       antd: 5.5.0_biqbaboplfbrettd7655fr4n2y
       axios: 1.4.0
@@ -162,6 +164,9 @@ importers:
       webpack-merge: 5.8.0
       webpackbar: 5.0.2_webpack@5.82.0
 
+  packages/dt-utils:
+    specifiers: {}
+
 packages:
 
   /@adobe/css-tools/4.2.0:
@@ -208,8 +213,8 @@ packages:
     resolution: {integrity: sha512-EB0iwlKDGpG93hW8f85CTJTs4SvMX7tt5ceupvhALp1IF44SeUFOMhKUOYqpsoYWQKAOuTRDMqn75rEaKDp0Xw==}
     dev: false
 
-  /@ant-design/icons/5.0.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-ZyF4ksXCcdtwA/1PLlnFLcF/q8/MhwxXhKHh4oCHDA4Ip+ZzAHoICtyp4wZWfiCVDP0yuz3HsjyvuldHFb3wjA==}
+  /@ant-design/icons/5.1.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-s7NJeBY2NS44+sAhpgaxtgvBda81vpVxLPXXdCWNXwIVR8T7DdhDsSZqqVMPlZwCKwRo89ksWhFifZo0Ulgxdw==}
     engines: {node: '>=8'}
     peerDependencies:
       react: '>=16.0.0'
@@ -3224,7 +3229,7 @@ packages:
     dependencies:
       '@ant-design/colors': 7.0.0
       '@ant-design/cssinjs': 1.9.1_biqbaboplfbrettd7655fr4n2y
-      '@ant-design/icons': 5.0.1_biqbaboplfbrettd7655fr4n2y
+      '@ant-design/icons': 5.1.0_biqbaboplfbrettd7655fr4n2y
       '@ant-design/react-slick': 1.0.1_react@18.2.0
       '@babel/runtime': 7.21.0
       '@ctrl/tinycolor': 3.6.0
