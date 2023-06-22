@@ -12,7 +12,7 @@ export enum ResponseCodeEnum {
 /**
  * 后端响应数据*/
 export interface ResponseResult<T> {
-	code: string;
+	code: number;
 	msg: string;
 	result: T;
 }

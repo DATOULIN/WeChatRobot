@@ -12,7 +12,7 @@ interface SettingConfig {
 const settingConfig: SettingConfig = {
 	title: 'robot-manager',
 	httpTimeout: 5000,
-	apiBaseURL: 'api',
+	apiBaseURL: '/api/',
 	tokenKey: 'ACCESS_TOKEN',
 	whiteList: ['/login', '/register']
 };

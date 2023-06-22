@@ -1,42 +1,18 @@
 import React from 'react';
-import { Button, Form, Input, message } from 'antd';
-import { login } from '@/api/user';
+import { Button, Form, Input } from 'antd';
 import { LoginParams } from '@/types/user';
-import { useRequest } from 'ahooks';
-import { setToken } from '@/utils/cookie';
-import { getVerificationCode } from '@/api/common';
-import { useNavigate } from 'react-router-dom';
-const Login: React.FC = () => {
-	const navigate = useNavigate();
-	const { run } = useRequest(login, {
-		manual: true,
-		onSuccess: (res) => {
-			message.success('登录成功！');
-			navigate('/', { replace: true });
-			setToken(res.result.access_token);
-		}
-	});
+import { useLoginMachine } from '@/machine/useLoginMachine';
 
-	useRequest(getVerificationCode, { onSuccess: (res) => {} });
+const Login: React.FC = () => {
+	const { state, send } = useLoginMachine();
 
 	const onFinish = (values: LoginParams) => {
-		console.log('Success:', values);
-		run(values);
+		const { email, password } = values;
+		state.matches('idle') ? send({ type: 'LOGIN', email, password }) : send({ type: 'RETRY', email, password });
 	};
 
-	const onFinishFailed = (errorInfo: any) => {
-		console.log('Failed:', errorInfo);
-	};
 	return (
-		<Form
-			name="basic"
-			labelCol={{ span: 8 }}
-			wrapperCol={{ span: 16 }}
-			style={{ maxWidth: 600 }}
-			onFinish={onFinish}
-			onFinishFailed={onFinishFailed}
-			autoComplete="off"
-		>
+		<Form name="basic" labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} style={{ maxWidth: 600 }} onFinish={onFinish} autoComplete="off">
 			<Form.Item
 				label="用户名"
 				name="email"

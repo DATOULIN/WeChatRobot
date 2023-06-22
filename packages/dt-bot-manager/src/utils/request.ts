@@ -6,7 +6,7 @@ import { ResponseCodeEnum, ResponseResult } from '@/types/response';
 const { httpTimeout, apiBaseURL } = settingConfig;
 const service = axios.create({
 	// withCredentials: true, // send cookies when cross-domain requests
-	baseURL: apiBaseURL, // url = base url + request url
+	baseURL: '/api/', // url = base url + request url
 	timeout: httpTimeout,
 	withCredentials: true
 });

@@ -15,3 +15,10 @@ export function register(data: RegisterParams) {
 		data
 	});
 }
+
+export function logout() {
+	return requestWrapper<LoginResponseData>('/v1/user/logout', {
+		method: 'post',
+		data: {}
+	});
+}
