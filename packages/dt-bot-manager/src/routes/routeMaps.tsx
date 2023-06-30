@@ -72,7 +72,7 @@ export const routeMaps: Array<RouteObject> = [
 				element: <User />,
 				handle: {
 					title: '用户管理',
-					auth: false,
+					auth: true,
 					hide: false,
 					icon: <UserOutlined />
 				}
@@ -81,7 +81,7 @@ export const routeMaps: Array<RouteObject> = [
 				path: 'setting',
 				handle: {
 					title: '系统设置',
-					auth: false,
+					auth: true,
 					hide: false,
 					icon: <ToolOutlined />
 				},
@@ -91,17 +91,16 @@ export const routeMaps: Array<RouteObject> = [
 						element: <ThemeSetting />,
 						handle: {
 							title: '主题设置',
-							auth: false,
+							auth: true,
 							hide: false,
 							icon: <SkinOutlined />
 						}
 					},
 					{
 						path: 'themes',
-						index: false,
 						handle: {
 							title: '主题设置',
-							auth: false,
+							auth: true,
 							hide: false,
 							icon: <SkinOutlined />
 						}

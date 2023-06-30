@@ -4,6 +4,7 @@ import { LoginParams } from '@/types/user';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './index.scss';
 import useLogin from '@/hooks/useLogin';
+import { setLoginState } from '@/utils/cache';
 
 const Login: React.FC = () => {
 	const { handleLogin, isLoggingIn, isLoggedIn, state } = useLogin();
@@ -17,7 +18,7 @@ const Login: React.FC = () => {
 	useEffect(() => {
 		console.log('当前状态：', isLoggedIn);
 		const jsonState = JSON.stringify(state);
-		localStorage.setItem('app-state', jsonState);
+		setLoginState(jsonState);
 		if (isLoggedIn) {
 			navigate('/', { replace: true });
 		}

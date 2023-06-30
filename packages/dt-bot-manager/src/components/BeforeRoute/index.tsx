@@ -1,9 +1,10 @@
-import { getToken } from '@/utils/cookie';
+import { getToken } from '@/utils/cache';
 import React, { Fragment, useEffect, useMemo } from 'react';
-import { Navigate, useLocation, matchRoutes, RouteObject } from 'react-router-dom';
+import { matchRoutes, Navigate, RouteObject, useLocation } from 'react-router-dom';
 import { routeMaps } from '@/routes/routeMaps';
-import getPageTitle from '@/utils/getPageTitle';
+import getPageTitle from '@/utils';
 import settingConfig from '@/configs/setting';
+
 const BeforeRoute: React.FC<{ children: React.ReactNode }> = (props) => {
 	const { children } = props;
 	const isToken = getToken();

@@ -1,8 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { message, Modal } from 'antd';
-import { clearToken, getToken } from '@/utils/cookie';
+import { message } from 'antd';
+import { clearToken, getToken } from '@/utils/cache';
 import settingConfig from '@/configs/setting';
 import { ResponseCodeEnum, ResponseResult } from '@/types/response';
+
 const { httpTimeout, apiBaseURL } = settingConfig;
 const service = axios.create({
 	// withCredentials: true, // send cookies when cross-domain requests
@@ -60,7 +61,10 @@ service.interceptors.response.use(
 );
 
 /**封装给业务端使用的*/
-export const requestWrapper = <T = never>(url: string, options?: AxiosRequestConfig): Promise<ResponseResult<T>> => {
+export const requestWrapper = <T = never>(
+	url: string,
+	options?: AxiosRequestConfig
+): Promise<ResponseResult<T>> => {
 	return service(url, {
 		...options
 	});

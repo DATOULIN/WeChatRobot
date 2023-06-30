@@ -1,8 +1,9 @@
 import { assign, createMachine, interpret, State } from 'xstate';
 import { login, logout } from '@/api/user';
 import { message } from 'antd';
-import { clearToken, setToken } from '@/utils/cookie';
+import { clearToken, getLoginState, setToken } from '@/utils/cache';
 import { createActorContext } from '@xstate/react';
+
 interface Context {
 	retries: number;
 	token: string;
@@ -132,7 +133,7 @@ const createState = (storeState: any, defaultContext: any) => {
 	return State.create(storedStateSubset as never);
 };
 
-const now = JSON.parse(localStorage.getItem('app-state')) || loginMachine.initialState;
+const now = JSON.parse(getLoginState()) || loginMachine.initialState;
 const currentState = createState(now, loginMachine.context) as never;
 loginInstance.start(currentState);
 
