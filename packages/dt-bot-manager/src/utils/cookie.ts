@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import settingConfig from '@/configs/setting';
-const { tokenKey } = settingConfig;
+const { tokenKey, themeKey } = settingConfig;
 
 export function getToken(): string {
 	return Cookies.get(tokenKey);
@@ -11,5 +11,13 @@ export function setToken(data: string) {
 }
 
 export function clearToken() {
-	Cookies.set(tokenKey, undefined);
+	Cookies.remove(tokenKey);
+}
+
+export function getTheme(): string {
+	return window.localStorage.getItem(themeKey);
+}
+
+export function clearTheme() {
+	window.localStorage.removeItem(themeKey);
 }

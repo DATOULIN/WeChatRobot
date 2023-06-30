@@ -10,9 +10,12 @@ importers:
       eslint-config-prettier: ^8.8.0
       eslint-plugin-prettier: ^4.2.1
       eslint-plugin-react: ^7.32.2
+      loadsh: ^0.0.4
       prettier: ^2.8.7
       ts-node: ^10.9.1
       typescript: ^5.0.4
+    dependencies:
+      loadsh: 0.0.4
     devDependencies:
       '@typescript-eslint/eslint-plugin': 5.59.5_zaj6dsh3leplki3sfxgbx2w2za
       '@typescript-eslint/parser': 5.59.5_3qfatcekpgbllh6uk5ivyhkbxq
@@ -69,6 +72,7 @@ importers:
       autoprefixer: ^10.4.14
       axios: ^1.4.0
       babel-loader: ^9.1.2
+      classnames: ^2.3.2
       compression-webpack-plugin: ^10.0.0
       copy-webpack-plugin: ^11.0.0
       core-js: ^3.30.1
@@ -78,6 +82,8 @@ importers:
       dotenv: ^16.0.3
       glob-all: ^3.3.1
       html-webpack-plugin: ^5.5.0
+      jotai: ^2.2.1
+      jotai-xstate: ^0.3.0
       js-cookie: ^3.0.5
       less: ^4.1.3
       less-loader: ^11.1.0
@@ -111,7 +117,10 @@ importers:
       ahooks: 3.7.7_react@18.2.0
       antd: 5.5.0_biqbaboplfbrettd7655fr4n2y
       axios: 1.4.0
+      classnames: 2.3.2
       dotenv: 16.0.3
+      jotai: 2.2.1_react@18.2.0
+      jotai-xstate: 0.3.0_jotai@2.2.1+xstate@4.37.2
       js-cookie: 3.0.5
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -6014,6 +6023,28 @@ packages:
     hasBin: true
     dev: true
 
+  /jotai-xstate/0.3.0_jotai@2.2.1+xstate@4.37.2:
+    resolution: {integrity: sha512-ImMTwkT8e2Ld3KBUtisjtzTgtg4jgeAoFzwVZgDCoDkYsYgmE8NatEwBoz63BTmpg+EKOYkDxd6QmrAT9a2TBw==}
+    peerDependencies:
+      jotai: '>=1.11.0'
+      xstate: '*'
+    dependencies:
+      jotai: 2.2.1_react@18.2.0
+      xstate: 4.37.2
+    dev: false
+
+  /jotai/2.2.1_react@18.2.0:
+    resolution: {integrity: sha512-Gz4tpbRQy9OiFgBwF9F7TieDn0UTE3C0IFSDuxHjOIvgn2tACH30UKz6p/wIlfoZROXSTCIxEvYEa7Y25WM+8g==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /jpeg-js/0.4.4:
     resolution: {integrity: sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg==}
     dev: false
@@ -6310,6 +6341,11 @@ packages:
       emojis-list: 3.0.0
       json5: 2.2.3
     dev: true
+
+  /loadsh/0.0.4:
+    resolution: {integrity: sha512-U+wLL8InpfRalWrr+0SuhWgGt10M4OyAk6G8xCYo2rwpiHtxZkWiFpjei0vO463ghW8LPCdhqQxXlMy2qicAEw==}
+    deprecated: This is a typosquat on the popular Lodash package. This is not maintained nor is the original Lodash package.
+    dev: false
 
   /locate-path/5.0.0:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}

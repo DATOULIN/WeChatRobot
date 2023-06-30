@@ -7,13 +7,13 @@ interface SettingConfig {
 	apiBaseURL: string;
 	// token cookie key
 	tokenKey: string;
-	whiteList: Array<string>;
+	themeKey: string;
 }
 const settingConfig: SettingConfig = {
 	title: 'robot-manager',
 	httpTimeout: 5000,
 	apiBaseURL: '/api/',
 	tokenKey: 'ACCESS_TOKEN',
-	whiteList: ['/login', '/register']
+	themeKey: 'dt-theme'
 };
 export default settingConfig;

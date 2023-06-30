@@ -1,15 +1,18 @@
-import { Suspense } from 'react';
 import { useRoutes } from 'react-router-dom';
-
 import { routeMaps } from '@/routes/routeMaps';
-import DTLoading from '@/components/DTLoading';
 import BeforeRoute from '@/components/BeforeRoute';
+import AntdThemeProvider from '@/provider/AntdThemeProvider';
+import { LoginMachineContext } from '@/machine/login';
+
 function App() {
 	const elementRoute = useRoutes(routeMaps);
+
 	return (
-		<Suspense fallback={<DTLoading />}>
-			<BeforeRoute>{elementRoute}</BeforeRoute>
-		</Suspense>
+		<AntdThemeProvider>
+			<LoginMachineContext.Provider>
+				<BeforeRoute>{elementRoute}</BeforeRoute>
+			</LoginMachineContext.Provider>
+		</AntdThemeProvider>
 	);
 }
 

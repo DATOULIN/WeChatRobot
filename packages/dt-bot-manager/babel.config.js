@@ -24,6 +24,7 @@ module.exports = {
 	],
 	plugins: [
 		['@babel/plugin-proposal-decorators', { legacy: true }],
+		['jotai/babel/plugin-react-refresh'],
 		isDEV && require.resolve('react-refresh/babel') // 如果是开发模式,就启动react热更新插件
 	].filter(Boolean) // 过滤空值
 };

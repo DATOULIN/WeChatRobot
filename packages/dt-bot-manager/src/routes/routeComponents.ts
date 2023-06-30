@@ -11,4 +11,8 @@ const Dashboard = lazy(() => import('@/pages/dashboard'));
 
 const About = lazy(() => import('@/pages/about'));
 
-export { Login, Register, Dashboard, Page404, Layout, About };
+const User = lazy(() => import('@/pages/user'));
+
+const ThemeSetting = lazy(() => import('@/pages/setting/theme'));
+
+export { Login, Register, Dashboard, Page404, Layout, About, User, ThemeSetting };
