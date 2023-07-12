@@ -2,6 +2,7 @@ import { Configuration, DefinePlugin } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackBar from 'webpackbar';
 import * as dotenv from 'dotenv';
+
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isDev = process.env.NODE_ENV === 'development'; // 是否是开发模式
@@ -15,7 +16,7 @@ const sassRegex = /\.(scss|sass)$/;
 const lessRegex = /\.less$/;
 const stylRegex = /\.styl$/;
 const imageRegex = /\.(png|jpe?g|gif|svg)$/i;
-const fontRegex = /\.(ttf|woff2?|eot|otf)$/;
+const fontRegex = /\.(ttf|woff|woff2?|eot|otf)$/;
 const mediaRegex = /\.(mp4|webm|ogg|mp3|wav|flac|aac)$/;
 const jsonRegex = /\.json$/;
 

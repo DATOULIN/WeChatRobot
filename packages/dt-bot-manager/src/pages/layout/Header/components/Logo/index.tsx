@@ -1,16 +1,13 @@
 import React from 'react';
 import useTheme from '@/store/theme';
-import { Space } from 'antd';
+import SvgIcon from '@/components/SvgIcon';
+import styles from './index.less';
 
 interface PropsType {}
 const DTLogo: React.FC<PropsType> = () => {
 	const [themeColor] = useTheme();
-
 	return (
-		<Space>
-			<img src="" alt="" />
-			<h1 style={{ color: themeColor }}>管理系统</h1>;
-		</Space>
+		<SvgIcon color={themeColor} type="icon-emoticons-color_robot" className={styles['logo']} />
 	);
 };
 

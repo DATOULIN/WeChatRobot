@@ -16,3 +16,16 @@ export interface ResponseResult<T> {
 	msg: string;
 	result: T;
 }
+interface Pager {
+	page: number;
+	page_size: number;
+	total_rows: number;
+}
+export interface ResponseListResult<T = any> {
+	code: number;
+	msg: string;
+	result: {
+		list: T;
+		pager: Pager;
+	};
+}

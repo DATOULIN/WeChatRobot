@@ -1,28 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button, Form, Input } from 'antd';
 import { LoginParams } from '@/types/user';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './index.scss';
 import useLogin from '@/hooks/useLogin';
-import { setLoginState } from '@/utils/cache';
 
 const Login: React.FC = () => {
-	const { handleLogin, isLoggingIn, isLoggedIn, state } = useLogin();
-	const navigate = useNavigate();
+	const { handleLogin, isLoggingIn } = useLogin();
 
 	const onFinish = (values: LoginParams) => {
 		const { email, password } = values;
 		handleLogin(email, password);
 	};
-
-	useEffect(() => {
-		console.log('当前状态：', isLoggedIn);
-		const jsonState = JSON.stringify(state);
-		setLoginState(jsonState);
-		if (isLoggedIn) {
-			navigate('/', { replace: true });
-		}
-	}, [isLoggedIn]);
 
 	return (
 		<div className={styles['login-page-warp']}>

@@ -1,0 +1,11 @@
+@import '@/styles/variable';
+
+@filter-table-prefix-cls: ~'@{dt-prefix}-table';
+
+.@{filter-table-prefix-cls}{
+  &-nowrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

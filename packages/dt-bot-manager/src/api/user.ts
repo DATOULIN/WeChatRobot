@@ -1,8 +1,16 @@
-import request, { requestWrapper } from '@/utils/request';
-import { LoginParams, RegisterParams, LoginResponseData } from '@/types/user';
+import request, { requestListWrapper, requestWrapper } from '@/utils/request';
+import {
+	LoginParams,
+	LoginResponseData,
+	RegisterParams,
+	UserDataType,
+	UserListParams
+} from '@/types/user';
+
+const userPrefix: string = '/v1/user';
 
 export function login(data: LoginParams) {
-	return requestWrapper<LoginResponseData>('/v1/user/login', {
+	return requestWrapper<LoginResponseData>(`${userPrefix}/login`, {
 		method: 'post',
 		data
 	});
@@ -10,15 +18,22 @@ export function login(data: LoginParams) {
 
 export function register(data: RegisterParams) {
 	return request({
-		url: '/v1/user/register',
+		url: `${userPrefix}/register`,
 		method: 'post',
 		data
 	});
 }
 
 export function logout() {
-	return requestWrapper<LoginResponseData>('/v1/user/logout', {
+	return requestWrapper<LoginResponseData>(`${userPrefix}/logout`, {
 		method: 'post',
 		data: {}
+	});
+}
+
+export function queryUserList(params: UserListParams) {
+	return requestListWrapper<UserDataType[]>(`${userPrefix}/list`, {
+		method: 'get',
+		params
 	});
 }

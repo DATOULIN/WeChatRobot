@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { message } from 'antd';
 import { clearToken, getToken } from '@/utils/cache';
 import settingConfig from '@/configs/setting';
-import { ResponseCodeEnum, ResponseResult } from '@/types/response';
+import { ResponseCodeEnum, ResponseListResult, ResponseResult } from '@/types/response';
 
 const { httpTimeout, apiBaseURL } = settingConfig;
 const service = axios.create({
@@ -65,6 +65,14 @@ export const requestWrapper = <T = never>(
 	url: string,
 	options?: AxiosRequestConfig
 ): Promise<ResponseResult<T>> => {
+	return service(url, {
+		...options
+	});
+};
+export const requestListWrapper = <T = never>(
+	url: string,
+	options?: AxiosRequestConfig
+): Promise<ResponseListResult<T>> => {
 	return service(url, {
 		...options
 	});

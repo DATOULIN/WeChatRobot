@@ -9,6 +9,7 @@ interface SettingConfig {
 	tokenKey: string;
 	themeKey: string;
 	loginStateKey: string;
+	iconPath: string;
 }
 const settingConfig: SettingConfig = {
 	title: 'robot-manager',
@@ -16,6 +17,7 @@ const settingConfig: SettingConfig = {
 	apiBaseURL: '/api/',
 	tokenKey: 'ACCESS_TOKEN',
 	themeKey: 'DT_THEME',
-	loginStateKey: 'DT_LOGIN_STATE'
+	loginStateKey: 'DT_LOGIN_STATE',
+	iconPath: '//at.alicdn.com/t/c/font_4148241_n15p4rrza4.js'
 };
 export default settingConfig;
