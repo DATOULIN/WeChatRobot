@@ -1,7 +1,8 @@
 import path from 'path';
 import webpack, { Configuration as WebpackConfiguration } from 'webpack';
-import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
-import WebpackDevServer from 'webpack-dev-server';
+import WebpackDevServer, {
+	Configuration as WebpackDevServerConfiguration
+} from 'webpack-dev-server';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { merge } from 'webpack-merge';
 import baseConfig from './webpack.base';
@@ -10,7 +11,7 @@ import baseConfig from './webpack.base';
 // 参考：create-react-app 的启动方式
 // https://github.com/facebook/create-react-app/blob/main/packages/react-dev-utils/openChrome.applescript
 // 记得关闭webpack-dev-server的配置中的自动打开 open: false 或者注释
-// const openBrowser = require('./util/openBrowser');
+const openBrowser = require('./util/openBrowser');
 
 interface Configuration extends WebpackConfiguration {
 	devServer?: WebpackDevServerConfiguration;
@@ -58,7 +59,7 @@ const devServer = new WebpackDevServer(
 
 devServer.start().then(() => {
 	// 启动界面
-	// openBrowser(`http://${host}:${port}`);
+	openBrowser(`http://${host}:${port}`);
 });
 
 export default devConfig;

@@ -1,5 +1,1 @@
-import { Parse } from './cache';
-
-export default {
-	Parse
-};
+export { default as getPrefixCls } from './util';

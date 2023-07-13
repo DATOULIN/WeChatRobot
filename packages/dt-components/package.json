@@ -1,5 +1,5 @@
 {
-  "name": "dt-utils",
+  "name": "dt-components",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,5 +11,11 @@
   "license": "ISC",
   "devDependencies": {
     "core-js": "^3.30.1"
+  },
+  "dependencies": {
+    "antd": "^5.5.0",
+    "classnames": "^2.3.2",
+    "dt-utils": "workspace:*",
+    "react": "^18.2.0"
   }
 }

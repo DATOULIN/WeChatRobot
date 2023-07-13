@@ -71,6 +71,7 @@
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
     "dotenv": "^16.0.3",
+    "dt-components": "workspace:*",
     "jotai": "^2.2.1",
     "jotai-xstate": "^0.3.0",
     "js-cookie": "^3.0.5",

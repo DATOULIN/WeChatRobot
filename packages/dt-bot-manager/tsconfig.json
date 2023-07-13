@@ -3,11 +3,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "dt-components": ["../dt-components/src"],
+      "dt-utils": ["../dt-utils/src"],
     },
     "typeRoots": ["./typings/*.d.ts", "node_modules/@types"],
     "jsx": "react-jsx"
   },
-  "exclude": ["node_modules", "dist"],
+  "exclude": ["node_modules", "dist","build"],
   "include": ["./src", "./typings/*.d.ts"]
 }

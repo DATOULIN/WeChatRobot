@@ -4,7 +4,7 @@ import { Image } from 'antd';
 import { UserDataType } from '@/types/user';
 import { useRequest } from 'ahooks';
 import { queryUserList } from '@/api/user';
-import FilterTable, { FilterTableColumnType, FilterTableProps } from '@/components/FilterTable';
+import { DtTable, DtTableColumnType, DtTableProps } from 'dt-components';
 
 const User: React.FC = () => {
 	const [state, setState] = useState({
@@ -15,7 +15,7 @@ const User: React.FC = () => {
 	});
 	const { current, pageSize, dataSource, total } = state;
 
-	const columns: FilterTableColumnType<UserDataType>[] = [
+	const columns: DtTableColumnType<UserDataType>[] = [
 		{
 			title: '用户ID',
 			dataIndex: 'user_id'
@@ -112,7 +112,7 @@ const User: React.FC = () => {
 		}
 	};
 
-	const onChange: FilterTableProps<UserDataType>['onChange'] = (
+	const onChange: DtTableProps<UserDataType>['onChange'] = (
 		pagination,
 		filters,
 		sorter,
@@ -121,7 +121,7 @@ const User: React.FC = () => {
 
 	return (
 		<PageContainer>
-			<FilterTable
+			<DtTable
 				dataList={{
 					dataSource,
 					pageSize,

@@ -3,7 +3,8 @@ import { Table, TableProps, Tooltip } from 'antd';
 import type { ColumnType } from 'antd/es/table';
 import { TooltipPlacement } from 'antd/es/tooltip';
 import classNames from 'classnames';
-import { getPrefixCls } from '@/utils';
+import { getPrefixCls } from 'dt-utils';
+
 import './index.less';
 
 /**
@@ -23,7 +24,7 @@ interface DataList<T = any> {
 /**
  * 表格列表的数据
  * */
-export interface FilterTableColumnType<T = any> extends ColumnType<T> {
+export interface DtTableColumnType<T = any> extends ColumnType<T> {
 	handleText?: (beforeText: any, record: T) => React.ReactNode;
 	placement?: TooltipPlacement;
 	isNowrap?: boolean;
@@ -44,14 +45,14 @@ interface TableConfig<T = any> {
 	tableProps: TableConfig<T>;
 }
 
-export interface FilterTableProps<T = any> {
+export interface DtTableProps<T = any> {
 	className?: string;
 	dataList: DataList<T>;
 	tableConfig: TableConfig;
 	onChange?: TableProps<T>['onChange'];
 }
 
-const FilterTable = forwardRef<HTMLDivElement, FilterTableProps>((props, ref) => {
+const DtTable = forwardRef<HTMLDivElement, DtTableProps>((props, ref) => {
 	const { className, dataList, tableConfig, onChange } = props;
 	const { dataSource = [], current = 1, pageSize = 10, total = 0 } = dataList;
 	const {
@@ -97,7 +98,7 @@ const FilterTable = forwardRef<HTMLDivElement, FilterTableProps>((props, ref) =>
 	};
 
 	const newColumns = useMemo(() => {
-		return columns.map((columnItem: FilterTableColumnType) => {
+		return columns.map((columnItem: DtTableColumnType) => {
 			const {
 				placement = 'topLeft',
 				autoWidth = false,
@@ -142,4 +143,4 @@ const FilterTable = forwardRef<HTMLDivElement, FilterTableProps>((props, ref) =>
 	);
 });
 
-export default FilterTable;
+export default DtTable;
